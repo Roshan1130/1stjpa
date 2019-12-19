@@ -5,17 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-/*create table doctors(
-id bigint auto_increment not null,
-name varchar(100) not null,
-speciality varchar(100) not null,
-department varchar(80) not null, 
-phone varchar(20) not null,
-primary key(id));
+@NamedQuery(
+		name="findDoctorBySpeciality",
+		query="FROM DoctorEntity d where d.speciality=:s"
+)
 
-*/
 @Entity
 @Table (name="doctors")
 public class DoctorEntity {
@@ -75,6 +72,12 @@ public class DoctorEntity {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	@Override
+	public String toString() {
+		return "DoctorEntity [id=" + id + ", name=" + name + ", speciality=" + speciality + ", department=" + department
+				+ ", phone=" + phone + "]";
 	}
 	
 	

@@ -9,17 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/*create table patients(
-id bigint auto_increment not null,
-name varchar(100) not null,
-email varchar(100) not null,
-phone varchar(20) not null,
-last_four_ssn varchar(10) not null,
-dob date not null,
-primary key(id)
-
-);*/
-
 @Entity
 @Table(name="patients")
 public class PatientEntity {
@@ -92,5 +81,12 @@ public class PatientEntity {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	@Override
+	public String toString() {
+		return "PatientEntity [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", lastFourSsn="
+				+ lastFourSsn + ", date=" + date + "]";
+	}
+	
 	
 }
